@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "expo-sensors": "~12.0.1"
+  }
+}

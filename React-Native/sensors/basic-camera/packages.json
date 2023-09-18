@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "expo-camera": "~13.1.0"
+  }
+}
