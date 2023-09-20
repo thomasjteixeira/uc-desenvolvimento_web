@@ -1,0 +1,8 @@
+Exercícios array:
+1 - Fazer um programa para calcular a soma dos números de um array 
+2 - Fazer um programa para calcular a média de todos os números de um array.
+3 - Fazer um programa com uma função que receba como parâmetro um array de números e retorne um array contendo somente números pares. 
+4 - Fazer um programa para localizar o maior valor dentro de um array de números.
+5 - Fazer um programa com uma função para inverter um array.
+
+------------------------------------------------------------------------
