@@ -1,0 +1,11 @@
+1 - Crie um programa que receba um array de números e use a função map() para criar um novo array onde cada número é o dobro do número correspondente no array original.​
+
+2 - Crie um programa que receba um array de nomes em letras minúsculas e use a função map() para criar um novo array onde cada nome seja convertido para letras maiúsculas.​
+
+3 - Crie uma função em JavaScript que gere um número inteiro aleatório dentro de um intervalo personalizado e o exiba no console. A função deve aceitar dois argumentos: o valor mínimo (inclusive) e o valor máximo (inclusive) que definem o intervalo. ​
+
+4 - Crie um programa que receba a circuferência e calcule o raio de um círculo e utilize a biblioteca Math do Javascript.​
+
+5 - Suponha que você tenha uma lista de objetos de usuário, ​cada um com um nome e uma idade. 
+    Crie uma função ​que recebe um nome como entrada e use o método find() ​para encontrar o primeiro usuário com o nome correspondente. ​
+    A função deve retornar esse usuário ou uma mensagem de que ​o usuário não foi encontrado. ​
