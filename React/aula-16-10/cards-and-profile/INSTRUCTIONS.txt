@@ -1,0 +1,65 @@
+Dê uma olhada nos arquivos fornecidos para este projeto. 
+Há um arquivo chamado commentData.js que contém um array de objetos de comentários com as propriedades profileImg, username e comment. 
+Você usará isso para popular os comentários no fórum. 
+
+A seção de comentários será composta por componentes Card, que serão compostos por componentes filhos menores, Header e Body. 
+Em seguida, App.js conterá o componente de nível superior. 
+Os dados em commentData.js serão recuperados em App.js e fluirão de App para Card, depois para Header e Body. index.js renderizará o componente App. style.css e index.html lidam com a marcação e o estilo do fórum. 
+Uma vez que você se sinta confortável com a estrutura deste aplicativo, avance para o próximo ponto de controle.
+
+2. Vamos começar com o menor componente, o Body. O Body é responsável por mostrar os comentários que os usuários escreveram. Ele trabalhará com a propriedade comment do nosso objeto de comentários passado, extraído de commentData.js.
+
+Abra Body.js e defina seu componente Body. Este componente deve receber props. 
+Este objeto props contém todos os dados sobre nosso comentário, como o username, imagem de perfil e comment, mas o Body trabalha especificamente apenas com a propriedade comment. Faça o componente retornar um elemento <p> que contém a propriedade comment de props.
+
+Exporte o componente Body após sua definição de função para que ele possa ser importado e usado em Card.js.
+
+Abra Header.js e defina seu componente Header. Este componente será responsável pelas propriedades profileImg e username do nosso objeto de comentários passado. O componente Header deve receber props. O componente deve retornar dois elementos, um elemento <img> cujo atributo src receberá a propriedade profileImg de props, e um elemento <h1>, exibindo o username de props.
+
+Exporte o componente Header após sua definição de função para que ele possa ser importado e usado em Card.js.
+
+Configurando o Card
+6. Ótimo trabalho! Vamos dar uma breve desviada de volta para App.js. Atualmente, o componente App está vazio. Este é o componente de nível superior e é responsável por retornar a interface a ser renderizada. Neste caso, ele retornará uma instância do componente Card para cada comentário em commentData.js. No corpo do componente App, mapeie o array de comentários com o argumento chamado comment e retorne uma instância do componente Card. Para cada componente, dê a ele um atributo chamado commentObject e o valor {comment}.
+Legal! Você configurou o App para passar informações para o componente Card. Vamos juntar as peças.
+
+Abra Card.js e importe os componentes Header e Body. Card será a "casca" externa que contém nossos dois componentes menores: Card é o componente pai, e Header e Body são os componentes filhos.
+
+Comece a definir o componente Card. Card deve receber props.
+
+Card deve retornar uma instância do componente Header e uma instância do componente Body.
+8.
+Anteriormente em App.js, você passou um atributo commentObject para Card que contém um objeto com três propriedades (profileImg, username e comment).
+
+É hora de acessar esses e finalmente passá-los para os componentes filhos: Header e Body.
+
+Header espera duas props, profileImg e username.
+
+Dê à instância Header um atributo chamado profileImg e o valor de props.commentObject.profileImg.
+9.
+Em seguida, dê à instância Header um atributo chamado username e o valor de props.commentObject.username.
+
+
+
+A instância Body espera uma prop chamada comment.
+
+Dê à instância Body um atributo chamado comment e o valor de props.commentObject.comment.
+11.
+
+Agora, exporte o componente Card para que ele possa ser importado e usado.
+Renderizando a Aplicação
+
+Abra App.js novamente e importe o componente Card que agora está definido e exportado.
+13.
+
+Em seguida, exporte o componente App.
+14.
+
+Abra index.js e importe o componente App.
+15.
+
+Como você deve se lembrar, index.js é basicamente responsável apenas por renderizar o componente App.
+
+Use .createRoot() para fornecer um contêiner onde você renderizará o componente App. Depois, use .render() para renderizá-lo no DOM!
+
+Se você teve sucesso, deve ver três comentários renderizados no navegador, participando de uma discussão empolgante sobre animais.
+
