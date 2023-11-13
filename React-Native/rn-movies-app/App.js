@@ -1,68 +1,53 @@
-import React, { useEffect, useState } from 'react';
-import { SafeAreaView, FlatList, Text, View, StyleSheet, Image } from 'react-native';
-import axios from 'axios';
+import * as React from 'react';
+import { Button, View, StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import MoviesScreen from './src/MoviesScreen';
+import SeriesScreen from './src/SeriesScreen';
 
-const App = () => {
-  const [movies, setMovies] = useState([]);
+const Stack = createNativeStackNavigator();
 
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const response = await axios.get('https://api.themoviedb.org/3/movie/top_rated', {
-          params: {
-            api_key: 'SUA_API_KEY',
-            language: 'pt-BR'
-          }
-        });
-        setMovies(response.data.results);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchMovies();
-  }, []);
-
+function HomeScreen({ navigation }) {
   return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        data={movies}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.movieItem}>
-            <Image
-              source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }}
-              style={styles.movieImage}
-            />
-            <Text style={styles.title}>{item.title}</Text>
-            <Text>Nota: {item.vote_average}</Text>
-          </View>
-        )}
-      />
-    </SafeAreaView>
+    <View style={styles.container}>
+      <View style={styles.buttonContainer}>
+        <Button
+          title="Go to Movies"
+          onPress={() => navigation.navigate('Movies')}
+        />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button
+          title="Go to Series"
+          onPress={() => navigation.navigate('Series')}
+        />
+      </View>
+    </View>
   );
-};
+}
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Movies" component={MoviesScreen} />
+        <Stack.Screen name="Series" component={SeriesScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  movieItem: {
-    padding: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: '#cccccc',
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  movieImage: {
-    width: '100%',
-    height: 200,
-    resizeMode: 'contain',
-    marginBottom: 10,
-  },
+  buttonContainer: {
+    marginBottom: 20,
+    width: '80%',
+  }
 });
 
 export default App;
