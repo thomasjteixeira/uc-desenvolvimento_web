@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, FlatList, Text, View, StyleSheet } from 'react-native';
+import { SafeAreaView, FlatList, Text, View, StyleSheet, Image } from 'react-native';
 import axios from 'axios';
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
       try {
         const response = await axios.get('https://api.themoviedb.org/3/movie/top_rated', {
           params: {
-            api_key: 'db97faa4d80f90ffe83589ef95873814',
+            api_key: 'SUA_API_KEY',
             language: 'pt-BR'
           }
         });
@@ -30,6 +30,10 @@ const App = () => {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.movieItem}>
+            <Image
+              source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }}
+              style={styles.movieImage}
+            />
             <Text style={styles.title}>{item.title}</Text>
             <Text>Nota: {item.vote_average}</Text>
           </View>
@@ -52,6 +56,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  movieImage: {
+    width: '100%',
+    height: 200,
+    resizeMode: 'contain',
+    marginBottom: 10,
   },
 });
 
